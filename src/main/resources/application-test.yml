@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mmall?characterEncoding=utf-8
+    username: root
+    password: root
+ftp:
+  server:
+    ip: 127.0.0.1
+    http-prefix: http://image.luhan.com/
+  user: admin
+  password: admin
