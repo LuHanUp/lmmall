@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * 电商项目的启动类
  * @author luHan
  * @date 2019-07-21 19:07
  */

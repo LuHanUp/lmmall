@@ -1,6 +1,5 @@
 package com.luhan.mmall.base;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,7 @@ import java.io.Serializable;
  * @date 2019-07-21 22:42
  */
 // 保证序列化对象的时候,如果对象是null,key也会消失,不会加入JSON中
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
+//@JsonInclude(value = JsonInclude.Include.NON_NULL)
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +30,24 @@ public class ServerResponse<T> implements Serializable {
      * @param data 响应数据
      */
     public static <T> ServerResponse success(T data){
-        return new ServerResponse(200,"成功",data);
+        return new ServerResponse<>(200,"成功",data);
+    }
+
+    /**
+     * 响应成功
+     * @param message 描述
+     */
+    public static <T> ServerResponse<T> success(String message){
+        return new ServerResponse<>(200,message,null);
+    }
+
+    /**
+     * 响应成功
+     * @param message 描述
+     * @param data 响应数据
+     */
+    public static <T> ServerResponse<T> success(String message,T data){
+        return new ServerResponse<>(200,message,data);
     }
 
     /**基础的响应失败的返回:{status:500,message:"失败"}*/
